@@ -1,0 +1,38 @@
+.loginbox
+  %ul.nav.navbar-right
+    %li
+      - if user_signed_in?
+        =link_to '退出管理', destroy_user_session_path, {method: :delete, style: "color:blue;margin-right:10px;font-size:100%;float:right"}
+        =link_to '网站管理', front_admin_path, {style: "color:blue;margin-right:10px;font-size:100%;float:right"}
+      - else
+/        %a{href: "/login", style: "color:red;float:right"}= t('.login')
+/        =link_to '注册', new_user_registration_path
+%h3.muted{style: "margin: 10px 0px;;line-height: 40px; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;letter-spacing: normal; orphans: auto; text-align: start;"}
+  %div.header-bg{style: "margin:auto;height:130px"}
+    %div{style: "width:90%;margin:auto;max-width:830px;height:100px"}
+      = image_tag "icon_img.png", {alt: "icon", style: "margin: auto;height:100px;min-width: 100px"}
+      = image_tag "title_img.png", {alt: "icon", style: "margin: auto;height:100px;width: 720;"}
+  / %a{href: "/"}= t('.sitename')
+  / .loginbox
+  /   %a{href: "/login"}= t('.login')
+.masthead
+  .navbar
+    .navbar-inner.navsite
+      .container
+        %ul.nav
+          %li= link_to t(".frontpage"), '/', {class: "navlink"}          
+          - @categories.each do |cat|
+            %li= link_to cat.name, cat
+            - if cat.sub_categories.count > 0
+              %li.dropdown
+                %a.dropdown-toggle#dLabel{ role: "button", data: {toggle: "dropdown", target: "#"}, href: "/" }
+                  %b.caret{style: "border-top:4px solid #F7EDED"}
+                %ul.dropdown-menu.pull-right.uldropdown{role: "menu", aria: {labelledby: "dLabel"}}
+                  - cat.sub_categories.each do |sub_cat|
+                    %li{role: "presentation"}
+                      = link_to sub_cat.name, sub_category_path(sub_cat), {role: "menuitem", tabindex: "-1"}
+          %li= link_to t(".registeronline"), '/'
+      :javascript
+        $(document).ready(function() {
+          $('.dropdown-toggle').dropdown();
+        })

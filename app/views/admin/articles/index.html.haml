@@ -1,0 +1,14 @@
+.span7.well.tablecolor
+  %table.plist    
+    %tr
+      %th 标题
+      %th 创建日期
+      %th
+
+    - @articles.each do |art|
+      %tr.content{class: cycle('list_line_odd', 'list_line_even')}
+        %td{style: "width:60%"}= link_to art.title, art, html_options = { class: "font14" }
+        %td= art.created_at.strftime('%Y-%m-%d %H:%M:%S').to_s
+        %td
+          = link_to '编辑', edit_admin_article_path(art)
+          = link_to '删除', admin_article_path(art), method: :delete, data: { confirm: '确定删除?' } 

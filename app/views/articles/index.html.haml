@@ -1,0 +1,10 @@
+.span7.well.tablecolor
+  %table.plist    
+    %tr
+      %th= t(".title_article")
+      %th= t(".created_date")
+
+    - @articles.each do |art|
+      %tr.content{class: cycle('list_line_odd', 'list_line_even')}
+        %td{style: "width:70%"}= link_to art.title, art, html_options = { class: "font14" }
+        %td= art.created_at.strftime('%Y-%m-%d').to_s

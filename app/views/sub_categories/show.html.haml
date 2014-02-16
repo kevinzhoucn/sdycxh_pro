@@ -1,0 +1,16 @@
+%p#notice= notice
+
+.span7.well.tablecolor
+  %h2= @sub_category.name
+  - if @sub_category.articles.count > 0
+    %table.plist    
+      %tr
+        %th= t(".title_article")
+        %th= t(".created_date")
+
+      - @sub_category.articles.each do |art|
+        %tr.content{class: cycle('list_line_odd', 'list_line_even')}
+          %td{style: "width:70%"}= link_to art.title, art, html_options = { class: "font14" }
+          %td= art.created_at.strftime('%Y-%m-%d').to_s
+  - else
+    %p= t(".articles_empty")
