@@ -35,6 +35,6 @@ production:
   adapter: mysql2
   encoding: utf8
   database: sdycxh 
-  username: sdycxh 
+  username: sdycxhadmin 
   password: sdyp@55w0rd 
   host:     localhost 
