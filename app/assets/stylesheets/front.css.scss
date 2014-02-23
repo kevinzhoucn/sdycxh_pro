@@ -108,7 +108,7 @@
   }
 }
 
-ul.nav >li, ul.uldropdown >li {
+ul.nav >li {
   a {
     @extend .navlink;
 
@@ -131,8 +131,8 @@ li.dropdown {
   }
 
   a:hover {
-    color: white;
-    background-color: transparent;
+    color: #FF948B;
+    background-color: #FF948B;
   }
 }
 

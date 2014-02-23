@@ -25,7 +25,7 @@
             %li= link_to cat.name, cat
             - if cat.sub_categories.count > 0
               %li.dropdown
-                %a.dropdown-toggle#dLabel{ role: "button", data: {toggle: "dropdown", target: "#"}, href: "/" }
+                %a.dropdown-toggle#dLabel{ role: "button", data: {toggle: "dropdown", target: "#"}, href: "/", style: "padding-left:0px" }
                   %b.caret{style: "border-top:4px solid #F7EDED"}
                 %ul.dropdown-menu.pull-right.uldropdown{role: "menu", aria: {labelledby: "dLabel"}}
                   - cat.sub_categories.each do |sub_cat|

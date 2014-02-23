@@ -1,10 +1,11 @@
 =render :partial => 'common/flashes'
 
-.span35.well{style: "color:red"}
-  %span.glyphicon.glyphicon-bullhorn{style: "float: left;margin-right: 10px;"}
-  .h5{style: "margin-bottom:10px;font-weight:bold"}= t(".recetn_activities")
-  %ul{style: "padding-left:20px"}
-    -@sub_category_recent.each do |recent|
-      %li
-        = link_to recent.title , recent
-        %span{style: "float:right"}= recent.created_at.strftime('%Y-%m-%d').to_s
+.span35
+  .panel.panel-danger
+    .panel-heading{style: "background-image: linear-gradient(to bottom, #F81010 0, #FF6464 100%);color:white;font-weight:bold"}= t(".recetn_activities")
+    .panel-body
+      %ul{style: "padding-left:20px"}
+        -@sub_category_recent.each do |recent|
+          %li
+            = link_to recent.title , recent
+            %span{style: "float:right"}= recent.created_at.strftime('%Y-%m-%d').to_s
