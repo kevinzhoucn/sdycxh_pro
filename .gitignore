@@ -11,7 +11,12 @@
 /db/*.sqlite3
 /public/assets/*.*
 /public/assets
+/public/uploadfiles
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/Gemfile.lock
+/db/schema.rb
+
 .project
