@@ -2,7 +2,8 @@ body {
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+//  font-family: "Microsoft YaHei","微软雅黑","SimSun","宋体";
+  font-size: 14px;
   line-height: 18px;
 }
 
@@ -10,6 +11,13 @@ p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+.panel .panel-body {
+  p {
+    font-size: 14px;
+    line-height: 25px;
+  }
 }
 
 pre {

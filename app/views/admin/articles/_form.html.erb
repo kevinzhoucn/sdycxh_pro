@@ -1,5 +1,6 @@
-<%= simple_form_for( [:admin, @article], :html => { :class => 'span8 form-horizontal well'  }) do |f| %>
+<%= simple_form_for( [:admin, @article], :html => { :class => 'span8 form-horizontal well', multipart: true }) do |f| %>
   <%= f.input :title, label: "标题" || t('.article_title')  %><br />
+  <%= f.input :avatar, as: :file, label: "插入图片" %>
   <%= f.cktext_area :content, label: "内容" || t('.article_content') %><br />
 
   <%= f.association :category, label: "父级分类" || t('.article_category'), include_blank: false, prompt: "选择类别" %>

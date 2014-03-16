@@ -3,11 +3,11 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : t('.title') %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag "application" %>    
     <script src="<%= root_url %>js/jquery-1.11.0.min.js"></script>
-    <%= javascript_include_tag "application" %>
     <link href="<%= root_url %>css/bootstrap.min.css" rel="stylesheet">
     <link href="<%= root_url %>css/bootstrap-theme.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag "application" %>    
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
     <style type="text/css">

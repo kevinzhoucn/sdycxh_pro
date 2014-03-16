@@ -3,4 +3,7 @@
 .span7.well.tablecolor
   %p
     %b{style: "font-size: 150%"}= @article.title
+  .span6{style: "margin:auto"}
+    - if not @article.avatar_file_name.nil?
+      = image_tag @article.avatar.url(:medium)
   %p= @article.content.html_safe
