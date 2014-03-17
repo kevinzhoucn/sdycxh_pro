@@ -9,7 +9,7 @@
           %ul{style: "padding-left:20px"}
             -@sub_category_recent.each do |recent|
               %li
-                = link_to recent.title , recent
+                = link_to sanitize(truncate(recent.title, :length => 12, :omission => "...")) , recent
                 %span{style: "float:right"}= recent.created_at.strftime('%Y-%m-%d').to_s
 .row
   .span12{style: "margin-top: 0px"}
