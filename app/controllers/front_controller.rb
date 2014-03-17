@@ -2,6 +2,7 @@ class FrontController < ApplicationController
   def index
     @sub_category_recent = Article.recent
     @category1 = Category.first
+    @category2 = Category.find(2)
   end
 
   def admin

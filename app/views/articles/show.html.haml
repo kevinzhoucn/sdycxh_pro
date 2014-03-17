@@ -5,5 +5,5 @@
     %b{style: "font-size: 150%"}= @article.title
   .span6{style: "margin:auto"}
     - if not @article.avatar_file_name.nil?
-      = image_tag @article.avatar.url(:medium)
+      = image_tag @article.avatar.url(:medium), class: "img-rounded"
   %p= @article.content.html_safe
