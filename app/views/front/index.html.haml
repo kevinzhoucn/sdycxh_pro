@@ -13,14 +13,12 @@
                 %span{style: "float:right"}= recent.created_at.strftime('%Y-%m-%d').to_s
 .row
   .span12{style: "margin-top: 0px"}
-    =render partial: 'segment', locals: { category_item: @category1 }
-    =render partial: 'userarea'
-
-.row
-  .span12{style: "margin-top: 0px"}
-    =render partial: 'segment', locals: { category_item: @category2 }
-    =render partial: 'picarea'
-
+    .span6{style: "display:inline-block;"}
+      =render partial: 'segment', locals: { category_item: @category1 }
+      =render partial: 'segment', locals: { category_item: @category2 }
+    .span35{style: "display:inline-block;"}
+      =render partial: 'video'
+      =render partial: 'picarea'
 
   / .span35{style: "display:inline-block;"}
   /   .panel.panel-danger

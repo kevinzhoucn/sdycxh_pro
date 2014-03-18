@@ -1,25 +1,24 @@
-.span6{style: "display:inline-block;"}
-  .panel.panel-danger
-    .panel-heading{style: "background-image: linear-gradient(to bottom, red, #d83030);color:white;font-weight:bold"} 
-      = link_to category_item.name, category_item, {style: "color: white"}
-    .panel-body{style: "padding-top:0px"}
-      %ul{style: "list-style: none;padding-left: 5px"}
-        - category_item.articles.front.each do |art|
-        - link_art = link_to art.title, art, style: "color: black"
-        - link_details = link_to "[详细]", art, style: "color: black;float: right"
-        - art_image = image_tag art.avatar.url(:thumb), class: "img-rounded"
-          %li{style: "width: 100%;float: left"}
-            %h3
-              = link_art
-            - if not art.avatar_file_name.nil?
-              .art_image{style: "float:left;width: 20%;padding: 10px;overflow: hidden"}
-                = art_image
-              .art_body{style: "float:left;width: 80%;overflow: hidden"}
-                %p
-                  = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
-                  = link_details
-            - else
-              .art_body{style: "float:left;width: 100%;overflow: hidden"}
-                %p
-                  = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
-                  = link_details
+.panel.panel-danger
+  .panel-heading{style: "background-image: linear-gradient(to bottom, red, #d83030);color:white;font-weight:bold"} 
+    = link_to category_item.name, category_item, {style: "color: white"}
+  .panel-body{style: "padding-top:0px"}
+    %ul{style: "list-style: none;padding-left: 5px"}
+      - category_item.articles.front.each do |art|
+      - link_art = link_to art.title, art, style: "color: black"
+      - link_details = link_to "[详细]", art, style: "color: black;float: right"
+      - art_image = image_tag art.avatar.url(:thumb), class: "img-rounded"
+        %li{style: "width: 100%;float: left"}
+          %h3
+            = link_art
+          - if not art.avatar_file_name.nil?
+            .art_image{style: "float:left;width: 20%;padding: 10px;overflow: hidden"}
+              = art_image
+            .art_body{style: "float:left;width: 80%;overflow: hidden"}
+              %p
+                = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
+                = link_details
+          - else
+            .art_body{style: "float:left;width: 100%;overflow: hidden"}
+              %p
+                = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
+                = link_details
