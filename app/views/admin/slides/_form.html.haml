@@ -1,0 +1,12 @@
+= simple_form_for([:admin, @slide]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+  .form-inputs
+    = f.input :summary
+  .form-inputs
+    = f.input :avatar, as: :file
+
+  .form-actions
+    = f.button :submit

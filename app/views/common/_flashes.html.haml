@@ -1,25 +1,42 @@
 .span6.well{style: "background-color: white;float:left"}
   #myCarousel.carousel.slide{style: "max-width:670px;max-height:447px"}
     %ol.carousel-indicators
-      %li.active{data: {target: "#myCarousel", slide_to: 0}}
-      %li{data: {target: "#myCarousel", slide_to: 1}}
-    .carousel-inner
-      .item.active
-        =image_tag "slide-01.jpg", {alt: "Slide-01"}
-        / .container
-        /   .carousel-caption
-        /     %h1 Picture01
-        /     %p.lead Picture01
-      .item
-        =image_tag "slide-02.jpg", {alt: "Slide-02"}
-        / .container
-        /   .carousel-caption
-        /     %h1 Picture02
-        /     %p.lead Picture02
-    %a.carousel-control.left{href: "#myCarousel", data: {slide: "prev"}}
-      %span.glyphicon.glyphicon-chevron-left
-    %a.carousel-control.right{href: "#myCarousel", data: {slide: "next"}}
-      %span.glyphicon.glyphicon-chevron-right
+      - if not @slides.nil?
+        - @slides.each_with_index do |slide, index|
+        - foo = "active" if ( index == 0 )
+          %li{class: "#{foo}", data: {target: "#myCarousel", slide_to: "#{index}"}}
+      - else
+        %li.active{data: {target: "#myCarousel", slide_to: 0}}
+        %li{data: {target: "#myCarousel", slide_to: 1}}
+
+    - if not @slides.nil?
+      .carousel-inner
+      - @slides.each_with_index do |slide, index|
+      - foo = "active" if index == 0
+        .item{class: "#{foo}"}
+          =image_tag slide.avatar.url(:large), {alt: "Slide-#{index}"}
+          .container
+            .carousel-caption
+              %h1= slide.title
+              %p.lead= slide.summary
+    - else
+      .carousel-inner
+        .item.active
+          =image_tag "slide-01.jpg", {alt: "Slide-01"}
+          / .container
+          /   .carousel-caption
+          /     %h1 Picture01
+          /     %p.lead Picture01
+        .item
+          =image_tag "slide-02.jpg", {alt: "Slide-02"}
+          / .container
+          /   .carousel-caption
+          /     %h1 Picture02
+          /     %p.lead Picture02
+      %a.carousel-control.left{href: "#myCarousel", data: {slide: "prev"}}
+        %span.glyphicon.glyphicon-chevron-left
+      %a.carousel-control.right{href: "#myCarousel", data: {slide: "next"}}
+        %span.glyphicon.glyphicon-chevron-right
   :javascript
     $(document).ready(function() {
       $('#myCarousel').carousel({
