@@ -11,14 +11,14 @@
 
     - if not @slides.nil?
       .carousel-inner
-      - @slides.each_with_index do |slide, index|
-      - foo = "active" if index == 0
-        .item{class: "#{foo}"}
-          =image_tag slide.avatar.url(:large), {alt: "Slide-#{index}"}
-          .container
-            .carousel-caption
-              %h1= slide.title
-              %p.lead= slide.summary
+        - @slides.each_with_index do |slide, index|
+        - foo = "active" if index == 0
+          .item{class: "#{foo}"}
+            =image_tag slide.avatar.url(:medium), {alt: "Slide-#{index}"}
+            .container
+              .carousel-caption
+                %h1= slide.title
+                %p.lead= slide.summary
     - else
       .carousel-inner
         .item.active

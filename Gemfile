@@ -36,7 +36,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'will_paginate'
 gem 'ckeditor'
-gem 'paperclip'
+gem 'paperclip', '~> 3.5.4'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

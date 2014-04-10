@@ -27,7 +27,7 @@ class Admin::SlidesController < ApplicationController
         format.html { redirect_to front_admin_path, notice: 'Slide was successfully created.' }
         format.json { render json: @slide, status: :created, location: @slide }
       else
-        format.html { render action: "slide" }
+        format.html { render front_admin_path, notice: 'error happened' }
         format.json { render json: @slide.errors, status: :unprocessable_entity }
       end
     end
@@ -48,5 +48,12 @@ class Admin::SlidesController < ApplicationController
   end
 
   def destroy
+    @slide = Slide.find(params[:id])
+    @slide.destroy
+
+    respond_to do |format|
+      format.html { redirect_to front_admin_path }
+      format.json { head :no_content }
+    end
   end
 end

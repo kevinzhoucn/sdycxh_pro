@@ -3,7 +3,7 @@ class FrontController < ApplicationController
     @sub_category_recent = Article.recent
     @category1 = Category.first
     @category2 = Category.find(2)
-    @slide = Slide.all
+    @slides = Slide.all
   end
 
   def admin
