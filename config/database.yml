@@ -23,7 +23,7 @@ defaults: &defaults
   pool: 5
   timeout: 5000
   encoding: utf8
-  <<: *<%= ENV['RAILS_DB'] || "sqlite" %>
+  <<: *<%= "sqlite" %>
 
 development:
   <<: *defaults
@@ -32,9 +32,9 @@ test: &test
   <<: *defaults
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: sdycxh 
-  username: sdycxhadmin
-  password: sdyp@55w0rd 
-  host:     localhost 
+  # adapter: mysql2
+  # encoding: utf8
+  # database: sdycxh 
+  # username: sdycxhadmin
+  # password: sdyp@55w0rd 
+  # host:     localhost 

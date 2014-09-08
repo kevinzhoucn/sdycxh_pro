@@ -2,11 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :title
+    = f.input :title, label: "标题"
   .form-inputs
-    = f.input :summary
+    = f.input :summary, label: "介绍"
   .form-inputs
-    = f.input :avatar, as: :file
+    = f.input :avatar, as: :file, label: "选择上传图片"
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, '提交'

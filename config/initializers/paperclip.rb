@@ -1,6 +1,7 @@
 require "paperclip"  
 
 Paperclip.options[:command_path] = 'C:/PROGRA~2/ImageMagick-6.8.7-Q16'
+#Paperclip.options[:command_path] = '/usr/bin'
 Paperclip.options[:swallow_stderr] = false
 
 def run cmd, params = "", expected_outcodes = 0
