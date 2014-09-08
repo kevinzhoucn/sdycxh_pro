@@ -32,6 +32,7 @@ test: &test
   <<: *defaults
 
 production:
+  <<: *defaults
   # adapter: mysql2
   # encoding: utf8
   # database: sdycxh 
