@@ -21,9 +21,11 @@ class Article < ActiveRecord::Base
 
   private  
     def random_file_name
-      if File.extname(avatar_file_name).present?
-        extension = File.extname(avatar_file_name).downcase
-        self.avatar.instance_write(:file_name, "#{Time.now.strftime("%Y%m%d%H%M%S")}#{rand(1000)}#{extension}")
+      if avatar_file_name
+        if File.extname(avatar_file_name).present?
+          extension = File.extname(avatar_file_name).downcase
+          self.avatar.instance_write(:file_name, "#{Time.now.strftime("%Y%m%d%H%M%S")}#{rand(1000)}#{extension}")
+        end
       end
     end
 end
