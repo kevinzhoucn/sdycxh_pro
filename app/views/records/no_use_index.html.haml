@@ -1,0 +1,60 @@
+.span7.well.tablecolor
+  %h3 在线报名
+  %table.plist    
+    %tr
+      %th 公司名称
+      %th 网站
+      %th 联系人
+      %th 电话
+      %th 报名日期
+      %th
+
+    - @records.each do |record|
+      %tr.content{class: cycle('list_line_odd', 'list_line_even')}
+        %td{style: "width:60%"}= link_to record.corp_name, record, html_options = { class: "font14" }
+        %td= record.corp_website
+        %td= record.contact_name
+        %td= record.contact_mobile
+        %td= record.created_at.strftime('%Y-%m-%d %H:%M:%S').to_s
+        %td
+          = link_to '编辑'#, edit_admin_record_path(record)
+          = link_to '删除'#, admin_record_path(record), method: :delete, data: { confirm: '确定删除?' } 
+
+/ %h1 Listing records
+
+
+/ %table
+/   %tr
+/     %th Corp name
+/     %th Corp address
+/     %th Corp desk
+/     %th Corp fax
+/     %th Corp website
+/     %th Contact name
+/     %th Contact mobile
+/     %th Contact id
+/     %th Contact email
+/     %th Summary
+/     %th
+/     %th
+/     %th
+
+/   - @records.each do |record|
+/     %tr
+/       %td= record.corp_name
+/       %td= record.corp_address
+/       %td= record.corp_desk
+/       %td= record.corp_fax
+/       %td= record.corp_website
+/       %td= record.contact_name
+/       %td= record.contact_mobile
+/       %td= record.contact_ID
+/       %td= record.contact_email
+/       %td= record.summary
+/       %td= link_to 'Show', record
+/       %td= link_to 'Edit', edit_record_path(record)
+/       %td= link_to 'Destroy', record, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+/ %br
+
+/ = link_to 'New Record', new_record_path

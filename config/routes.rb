@@ -1,23 +1,23 @@
 RailsApp::Application.routes.draw do
-
-
   mount Ckeditor::Engine => '/ckeditor'
 #  devise_for :users, :path => "/", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification'}#, :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
   devise_for :users, only: [:session], :path => '/', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
   get "front/index"
   get "front/admin", :as=>"front_admin"
+  match "register/new", :to => 'records#new', :as=>"front_online_register"
 
   resources :categories, only: [:show]
   resources :sub_categories, only: [:show]
-
   resources :articles, only: [:show, :index]
+  resources :records, only: [:new, :create]
 
   namespace 'admin' do
     resources :articles
     resources :categories
     resources :sub_categories    
     resources :slides
+    resources :records
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

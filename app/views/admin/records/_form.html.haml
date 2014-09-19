@@ -1,0 +1,52 @@
+= form_for [:admin, @record] do |f|
+  - if @record.errors.any?
+    #error_explanation
+      %h2= "以下字段缺失"
+  %h4 公司信息：
+  .field
+    = f.label :corp_name, "名称"
+    %br
+    = f.text_field :corp_name
+  .field
+    = f.label :corp_address, "地址"
+    %br
+    = f.text_field :corp_address
+  .field
+    = f.label :corp_desk, "座机"
+    %br
+    = f.text_field :corp_desk
+  .field
+    = f.label :corp_fax, "传真"
+    %br
+    = f.text_field :corp_fax
+  .field
+    = f.label :corp_website, "网址"
+    %br
+    = f.text_field :corp_website
+  %h4 联系人信息：
+  .field
+    = f.label :contact_name, "姓名"
+    %br
+    = f.text_field :contact_name
+  .field
+    = f.label :contact_mobile, "手机"
+    %br
+    = f.text_field :contact_mobile
+  .field
+    = f.label :contact_ID, "身份证"
+    %br
+    = f.text_field :contact_ID
+  .field
+    = f.label :avatar, "上传身份证复印件"
+    %br
+    = f.file_field  :avatar
+  .field
+    = f.label :contact_email, "邮箱"
+    %br
+    = f.text_field :contact_email
+  .field
+    = f.label :summary, "附加信息"
+    %br
+    = f.text_area :summary
+  .actions
+    = f.submit '提交'

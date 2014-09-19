@@ -1,0 +1,47 @@
+%p#notice= notice
+
+%p
+  %b Corp name:
+  = @record.corp_name
+%p
+  %b Corp address:
+  = @record.corp_address
+%p
+  %b Corp desk:
+  = @record.corp_desk
+%p
+  %b Corp fax:
+  = @record.corp_fax
+%p
+  %b Corp website:
+  = @record.corp_website
+%p
+  %b Contact name:
+  = @record.contact_name
+%p
+  %b Contact mobile:
+  = @record.contact_mobile
+%p
+  %b Contact id:
+  = @record.contact_ID
+%p
+  %b Contact email:
+  = @record.contact_email
+%p
+  %b Summary:
+  = @record.summary
+
+= link_to 'Edit', edit_record_path(@record)
+\|
+= link_to 'Back', records_path
+
+
+%p#notice= notice
+
+.span7.well.tablecolor
+  %p
+    %b{style: "font-size: 150%"}= @record.corp_name
+  / .span6{style: "margin:auto"}
+  /   - if not @article.avatar_file_name.nil?
+  /     = image_tag @article.avatar.url(:medium), class: "img-rounded"
+  / %p= @article.content.html_safe

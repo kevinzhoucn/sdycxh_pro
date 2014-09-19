@@ -3,6 +3,7 @@
   = link_to "编辑文章", admin_articles_path, {style: "color:blue"}
   = link_to "添加图片轮播", new_admin_slide_path, {style: "color:blue"}
   = link_to "新建子级菜单", new_admin_sub_category_path, {style: "color:blue"}
+  = link_to "在线报名", admin_records_path, {style: "color:blue"}
   %ul{style: "padding-left:10px"}
     - if not subcategory.nil?
       - subcategory.each do |sub|

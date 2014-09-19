@@ -1,0 +1,39 @@
+%p#notice= notice
+
+.span7.well.tablecolor
+  %p
+    %b{style: "font-size: 150%"}= @record.corp_name
+  %p
+    %b 地址:
+    = @record.corp_address
+  %p
+    %b 座机:
+    = @record.corp_desk
+  %p
+    %b 传真:
+    = @record.corp_fax
+  %p
+    %b 网站:
+    = @record.corp_website
+  %p
+    %b 联系人姓名:
+    = @record.contact_name
+  %p
+    %b 手机:
+    = @record.contact_mobile
+  %p
+    %b 身份证号:
+    = @record.contact_ID
+  .span6{style: "margin:auto"}
+    - if not @record.avatar_file_name.nil?
+      = image_tag @record.avatar.url(:medium), class: "img-rounded"
+  %p
+    %b 邮箱:
+    = @record.contact_email
+  %p
+    %b 备注:
+    = @record.summary
+
+  = link_to '编辑', edit_admin_record_path(@record)
+  \|
+  = link_to '后退', admin_records_path
