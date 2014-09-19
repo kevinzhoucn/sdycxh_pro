@@ -19,5 +19,6 @@
                 = link_details
           - else
             .art_body{style: "float:left;width: 100%;overflow: hidden"}
-              = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
-              = link_details
+              %p
+                / = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
+                = link_details
