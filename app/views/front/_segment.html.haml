@@ -15,10 +15,10 @@
               = art_image
             .art_body{style: "float:left;width: 80%;overflow: hidden"}
               %p
-                = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
+                / = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
                 = link_details
           - else
             .art_body{style: "float:left;width: 100%;overflow: hidden"}
               %p
-                = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
+                / = sanitize( truncate( art.content.html_safe, :length => 82, :omission => "..." ) )
                 = link_details
