@@ -1,15 +1,17 @@
-%h1 Listing Slides
+%h1 首页图片轮播
 
-%table
-  %tr
-    %th Title
-    %th Summary
-    %th
-    %th
+= link_to "新建", new_admin_slide_path, {style: "color:blue"}
 
-  - @slides.each do |slide|
+.span7.well.tablecolor
+  %table.plist
     %tr
-      %td= slide.title
-      %td= slide.summary
-      %td= link_to 'Edit', edit_admin_slide_path(slide)
-      %td= link_to 'Destroy', admin_slide_path(slide), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th 标题
+      %th 简介
+      %th 管理
+
+    - @slides.each do |slide|
+      %tr.content{class: cycle('list_line_odd', 'list_line_even')}
+        %td{style: "width:20%"}= slide.title
+        %td{style: "width:50%"}= slide.summary
+        %td
+          = link_to '删除', admin_slide_path(slide), :method => :delete, :data => { :confirm => 'Are you sure?' }

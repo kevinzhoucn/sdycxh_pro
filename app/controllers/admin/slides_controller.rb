@@ -24,7 +24,7 @@ class Admin::SlidesController < ApplicationController
 
     respond_to do |format|
       if @slide.save
-        format.html { redirect_to front_admin_path, notice: 'Slide was successfully created.' }
+        format.html { redirect_to admin_slides_path, notice: 'Slide was successfully created.' }
         format.json { render json: @slide, status: :created, location: @slide }
       else
         format.html { render front_admin_path, notice: 'error happened' }
