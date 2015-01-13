@@ -4,10 +4,10 @@
   = link_to "管理图片轮播", admin_slides_path, {style: "color:blue"}
   = link_to "新建子级菜单", new_admin_sub_category_path, {style: "color:blue"}
   = link_to "在线报名", admin_records_path, {style: "color:blue"}
-  %ul{style: "padding-left:10px"}
-    - if not subcategory.nil?
-      - subcategory.each do |sub|
-        %li
-          %span= sub.name
-          =link_to "删除", admin_sub_category_path(sub), { method: :delete, data: { confirm: "确定删除?"}, style: "float:right;color:blue" }
-          =link_to "编辑|", edit_admin_sub_category_path(sub), {style: "float:right;color:blue"}
+  / %ul{style: "padding-left:10px"}
+  /   - if not subcategory.nil?
+  /     - subcategory.each do |sub|
+  /       %li
+  /         %span= sub.name
+  /         =link_to "删除", admin_sub_category_path(sub), { method: :delete, data: { confirm: "确定删除?"}, style: "float:right;color:blue" }
+  /         =link_to "编辑|", edit_admin_sub_category_path(sub), {style: "float:right;color:blue"}
